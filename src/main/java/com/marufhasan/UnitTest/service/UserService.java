@@ -1,11 +1,12 @@
 package com.marufhasan.UnitTest.service;
 
+import com.marufhasan.UnitTest.dto.CreateUserDTO;
 import com.marufhasan.UnitTest.model.User;
 
 import java.util.List;
 
 public interface UserService {
-    User createUser(User user);
+    User createUser(CreateUserDTO createUserDTO);
 
     List<User> getAllUsers();
 
@@ -13,5 +14,5 @@ public interface UserService {
 
     User updateUser(User user);
 
-    void deleteUser(String userName);
+    void deleteUser(long userId);
 }

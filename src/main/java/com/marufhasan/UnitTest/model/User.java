@@ -1,8 +1,23 @@
 package com.marufhasan.UnitTest.model;
 
+import jakarta.persistence.*;
+
+@Entity(name = "mockUser")
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Column(name = "id")
+    private Long Id;
+
+    @Column(name = "user_name")
     private String userName;
+
+    @Column(name = "user_password")
     private String userPassword;
+
+    @Column(name = "user_email")
     private String userEmail;
 
     public User() {
@@ -12,6 +27,14 @@ public class User {
         this.userName = userName;
         this.userPassword = userPassword;
         this.userEmail = userEmail;
+    }
+
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(Long id) {
+        Id = id;
     }
 
     public String getUserName() {
@@ -41,7 +64,8 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "userName='" + userName + '\'' +
+                "Id=" + Id +
+                ", userName='" + userName + '\'' +
                 ", userPassword='" + userPassword + '\'' +
                 ", userEmail='" + userEmail + '\'' +
                 '}';
