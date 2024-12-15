@@ -10,11 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.jdbc.EmbeddedDatabaseConnection;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.Assert;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -26,11 +24,6 @@ public class UserRepositoryTest {
     @Autowired
     private  UserRepository userRepository;
     Logger logger = LoggerFactory.getLogger("TestLogger");
-
-
-  //  public UserRepositoryTest(UserRepository userRepository) {
-   //     this.userRepository = userRepository;
-   // }
 
     @Test
     public void createUser_ValidUserInfo_SaveUser()
@@ -65,7 +58,7 @@ public class UserRepositoryTest {
 
         List<User>savedList = userRepository.findAll();
         Assertions.assertNotNull(savedList);
-        Assertions.assertEquals((int)savedList.size(), 3);
+        Assertions.assertEquals(3, (int)savedList.size());
         Assertions.assertIterableEquals(userList, savedList);
     }
 

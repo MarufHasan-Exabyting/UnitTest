@@ -28,23 +28,23 @@ public class UserController {
     @GetMapping("")
     public List<User> getAllUsers()
     {
-        return null;
+        return userService.getAllUsers();
     }
     @GetMapping("{userName}")
     public User getUserByUserName(@PathVariable String userName)
     {
-        return null;
+        return userService.getUserByUserName(userName);
     }
 
     @PutMapping("")
     public User updateUser(@Valid @RequestBody User user)
     {
-        return null;
+        return userService.updateUser(user);
     }
 
-    @DeleteMapping("/")
-    public void deleteUser(String userName)
+    @DeleteMapping("{userId}")
+    public void deleteUser(@PathVariable long userId)
     {
-        return ;
+        userService.deleteUser(userId);
     }
 }
